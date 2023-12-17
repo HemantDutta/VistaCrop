@@ -1,3 +1,6 @@
+/*Z-index Chart*/
+/*Navbar: 999*/
+
 *,
 *:after,
 *:before {
@@ -27,12 +30,33 @@ body {
     }
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--clr-4);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--clr-1);
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #e3dacb;
+}
+
 /*==========Common CSS==========*/
 
 .main-container {
     position: relative;
     padding: 0 76px;
-    margin-top: 100px;
+    z-index: 100;
 }
 
 @media screen and (max-width: 991px) {
@@ -107,6 +131,16 @@ a {
 
 nav {
     padding: 24px 76px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 999;
+    transition: all 0.4s ease;
+    transition-delay: 0.2s;
+}
+
+nav.hide {
+    transform: translateY(-100%);
 }
 
 nav .navbar-container {
@@ -194,6 +228,7 @@ nav .navbar-container .right .ham {
     align-items: center;
     justify-content: center;
     gap: 32px;
+    min-height: 100vh;
 }
 
 .hero > * {
@@ -254,4 +289,142 @@ nav .navbar-container .right .ham {
     }
 }
 
+.services {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.services .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.services .header .head {
+    font-size: 32px;
+    color: var(--clr-3);
+}
+
+.services .header .desc {
+    width: 680px;
+    font-size: 20px;
+    color: var(--clr-4);
+}
+
+.services .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.services .service-grid .service-item {
+    position: relative;
+    background-color: var(--clr-5);
+    border-radius: 50px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.services .service-grid .service-item .header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.services .service-grid .service-item .header .head {
+    font-size: 32px;
+    color: var(--clr-3);
+}
+
+.services .service-grid .service-item .header img {
+    width: 100px;
+}
+
+.services .service-grid .service-item .tag {
+    color: var(--clr-4);
+}
+
+.services .service-grid .service-item a {
+    font-size: 18px;
+}
 /*==========Home End==========*/
+
+/*==========Footer==========*/
+
+footer {
+    position: relative;
+    z-index: 100;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background-color: var(--clr-4);
+}
+
+footer .footer-container {
+    padding: 56px 56px 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+footer .footer-container .left {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/2;
+}
+
+footer .footer-container .left .logo {
+    font-size: 56px;
+    color: white;
+}
+
+footer .footer-container .left .tag {
+    font-size: 20px;
+    color: var(--clr-5);
+}
+
+footer .footer-container .right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    grid-column: 3/-1;
+}
+
+footer .footer-container .right .head {
+    font-size: 24px;
+    color: var(--clr-5);
+}
+
+footer .footer-container .right .list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+footer .footer-container .right .list a {
+    color: var(--clr-1);
+}
+
+footer .footer-container .bottom {
+    border-top: 1px solid var(--clr-1);
+    grid-column: 1/-1;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 25px;
+}
+
+footer .footer-container .bottom .copy {
+    color: var(--clr-1);
+}
+
+footer .footer-container .bottom a {
+    color: var(--clr-1);
+}
+/*==========Footer End==========*/

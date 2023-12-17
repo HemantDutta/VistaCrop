@@ -1,9 +1,33 @@
 import {Link} from "react-router-dom";
+import {useEffect} from "react";
 
 export const Navbar = () => {
+
+    //Scroll Y
+    let scrollY = window.scrollY;
+
+    //Hide navbar on scroll
+    useEffect(() => {
+        const hideNav = () => {
+            let nav = document.getElementById("nav");
+            if (window.scrollY > scrollY) {
+                nav.classList.add("hide");
+            } else {
+                nav.classList.remove("hide");
+            }
+            scrollY = window.scrollY;
+        }
+
+        window.addEventListener("scroll", hideNav);
+
+        return () => {
+            window.removeEventListener("scroll", hideNav);
+        }
+    }, [])
+
     return (
         <>
-            <nav>
+            <nav id="nav">
                 <div className="navbar-container">
                     <div className="left">
                         <Link to={"/"} className="logo cursive text-gradient">VistaCrop</Link>
