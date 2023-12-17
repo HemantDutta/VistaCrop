@@ -57,7 +57,7 @@ body {
     position: relative;
     padding: 0 76px;
     z-index: 100;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 @media screen and (max-width: 991px) {
@@ -393,12 +393,114 @@ nav .navbar-container .right .ham {
 
 /*==========Predict==========*/
 
+.predict {
+    margin-bottom: 100px;
+}
 
+.predict .form-section .header {
+    display: flex;
+    flex-direction: column;
+}
 
+.predict .form-section .header .head {
+    font-size: 56px;
+    color: var(--clr-3);
+}
+
+.predict .form-section .header .tag {
+    font-size: 20px;
+    color: var(--clr-4);
+}
+
+.predict .form-section form {
+    margin-top: 25px;
+    padding: 56px;
+    border-radius: 50px;
+    background-color: var(--clr-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.predict .form-section form .input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 40%;
+}
+
+.predict .form-section form .input-field label {
+    font-size: 18px;
+    color: var(--clr-1);
+}
+
+.predict .form-section form .input-field input {
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    outline: 2px solid var(--clr-2);
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.predict .form-section form .input-field input:focus {
+    outline: 2px solid var(--clr-2);
+    outline-offset: 5px;
+}
+
+.predict .form-section form .btn-field {
+    width: 40%;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.predict .form-section form .btn-field button {
+    background-color: var(--clr-5);
+    color: var(--clr-4);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.predict .analysis {
+    margin-top: 75px;
+}
+
+.predict .analysis .head {
+    font-size: 56px;
+    color: var(--clr-3);
+}
+
+.predict .analysis .results {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.predict .analysis .results .crop {
+    font-size: 32px;
+    color: var(--clr-3);
+}
+
+.predict .analysis .results .des {
+    font-size: 24px;
+    color: var(--clr-4);
+}
+
+@media screen and (max-width: 600px) {
+    .predict .form-section form {
+        flex-direction: column;
+    }
+
+    .predict .form-section form .input-field {
+        width: 100%;
+    }
+}
 /*==========Predict End==========*/
 
 /*==========Footer==========*/
-
 footer {
     position: relative;
     z-index: 100;
@@ -475,6 +577,10 @@ footer .footer-container .bottom a {
 @media screen and (max-width: 800px) {
     footer .footer-container .right {
         grid-column: 1/2;
+    }
+
+    footer .footer-container {
+        grid-template-columns: 1fr;
     }
 }
 
