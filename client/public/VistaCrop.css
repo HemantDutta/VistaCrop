@@ -1,0 +1,257 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-1: #FFFBF5;
+    --clr-2: #A367B1;
+    --clr-3: #5D3587;
+    --clr-4: #392467;
+    --clr-5: #FFD1E3;
+    --bg-bl: #10101f;
+}
+
+body {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--clr-1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
+/*==========Common CSS==========*/
+
+.main-container {
+    position: relative;
+    padding: 0 76px;
+    margin-top: 100px;
+}
+
+@media screen and (max-width: 991px) {
+    .main-container {
+        padding: 0 56px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-container {
+        padding: 0 32px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .main-container {
+        padding: 0 16px;
+    }
+}
+
+.cursive {
+    font-family: 'Courgette', cursive;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, var(--clr-2), var(--clr-4), var(--clr-5));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+.bolder {
+    font-weight: 700;
+}
+
+.hella-bold {
+    font-weight: 800;
+}
+
+.light {
+    font-weight: 100;
+}
+
+.button {
+    padding: 10px 24px;
+    border-radius: 50px;
+    background-color: var(--clr-4);
+    transition: all 0.2s ease;
+    color: var(--clr-5);
+    border: none;
+    outline: none;
+}
+
+.button:hover {
+    background-color: #56369a;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+a {
+    text-decoration: none;
+}
+
+/*==========Common CSS End==========*/
+
+/*==========Navbar==========*/
+
+nav {
+    padding: 24px 76px;
+}
+
+nav .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .navbar-container .left a.logo {
+    font-size: 36px;
+}
+
+nav .navbar-container .right ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style-type: none;
+}
+
+nav .navbar-container .right ul li a {
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--clr-3);
+    position: relative;
+}
+
+nav .navbar-container .right ul li a:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 20px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--clr-3);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+nav .navbar-container .right ul li a:hover:after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+nav .navbar-container .right .ham {
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+    nav {
+        padding: 24px 56px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    nav .navbar-container .right ul {
+        display: none;
+    }
+
+    nav .navbar-container .right .ham {
+        display: initial;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        padding: 24px 32px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    nav {
+        padding: 24px 16px;
+    }
+}
+
+/*==========Navbar End==========*/
+
+/*==========Home==========*/
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.hero > * {
+    flex: 1;
+}
+
+.hero .left {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero .left .head {
+    font-size: 56px;
+    color: var(--clr-3);
+}
+
+.hero .left .tag {
+    font-size: 20px;
+    color: var(--clr-4);
+}
+
+.hero .left .cta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 20px;
+    margin-top: 24px;
+}
+
+.hero .right {
+    display: grid;
+    place-items: center;
+}
+
+@media screen and (max-width: 1191px) {
+    .hero {
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hero .right img {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .hero .left span.head {
+        font-size: 32px;
+    }
+
+    .hero .left span.tag {
+        font-size: 16px;
+    }
+
+    .hero .left .cta {
+        flex-direction: column-reverse;
+    }
+}
+
+/*==========Home End==========*/
