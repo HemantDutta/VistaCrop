@@ -57,6 +57,7 @@ body {
     position: relative;
     padding: 0 76px;
     z-index: 100;
+    margin-top: 50px;
 }
 
 @media screen and (max-width: 991px) {
@@ -136,7 +137,6 @@ nav {
     width: 100vw;
     z-index: 999;
     transition: all 0.4s ease;
-    transition-delay: 0.2s;
 }
 
 nav.hide {
@@ -261,6 +261,7 @@ nav .navbar-container .right .ham {
 .hero .right {
     display: grid;
     place-items: center;
+    padding: 32px;
 }
 
 @media screen and (max-width: 1191px) {
@@ -271,7 +272,7 @@ nav .navbar-container .right .ham {
 
 @media screen and (max-width: 600px) {
     .hero .right img {
-        width: 90vw;
+        width: 80vw;
     }
 }
 
@@ -291,7 +292,7 @@ nav .navbar-container .right .ham {
 
 .services {
     position: relative;
-    margin-bottom: 100px;
+    margin: 100px 0;
 }
 
 .services .header {
@@ -317,6 +318,9 @@ nav .navbar-container .right .ham {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
     margin-top: 32px;
+    place-items: center;
+    justify-content: stretch;
+    align-items: stretch;
 }
 
 .services .service-grid .service-item {
@@ -352,7 +356,46 @@ nav .navbar-container .right .ham {
 .services .service-grid .service-item a {
     font-size: 18px;
 }
+
+@media screen and (max-width: 1200px) {
+    .services .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services .service-grid .service-item {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .services .service-grid .service-item {
+        width: 100%;
+    }
+
+    .services .service-grid .service-item .header {
+        flex-direction: column;
+    }
+
+    .services .header {
+        flex-direction: column;
+    }
+
+    .services .header .desc {
+        width: auto;
+    }
+
+    .services .service-grid .service-item .header .head {
+        font-size: 24px;
+    }
+}
+
 /*==========Home End==========*/
+
+/*==========Predict==========*/
+
+
+
+/*==========Predict End==========*/
 
 /*==========Footer==========*/
 
@@ -403,6 +446,7 @@ footer .footer-container .right .list {
     display: flex;
     align-items: center;
     gap: 16px;
+    flex-wrap: wrap;
 }
 
 footer .footer-container .right .list a {
@@ -427,4 +471,11 @@ footer .footer-container .bottom .copy {
 footer .footer-container .bottom a {
     color: var(--clr-1);
 }
+
+@media screen and (max-width: 800px) {
+    footer .footer-container .right {
+        grid-column: 1/2;
+    }
+}
+
 /*==========Footer End==========*/
