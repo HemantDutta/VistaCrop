@@ -72,6 +72,9 @@ export const Predict = () => {
     //Handle Form Submission
     function handleSubmit(e) {
         e.preventDefault();
+        let form = document.getElementById("form");
+        document.getElementById("form2").reset();
+        form.style.opacity = "0";
         let index = genRandomCrop();
         setCropName(crops[index]);
         setCropData(cropDescriptionsArray[index]);
@@ -85,13 +88,44 @@ export const Predict = () => {
             first.current = false;
         } else {
             if (anal) {
-                document.getElementById("analysis").scrollIntoView();
+                let form = document.getElementById("form");
                 setTimeout(() => {
-                    setLoader(false);
-                }, 3000)
+                    form.style.display = "none";
+                    let load = document.getElementById("loader");
+                    load.style.opacity = "1";
+                    document.getElementById("analysis").scrollIntoView();
+                    setTimeout(() => {
+                        setLoader(false);
+                    }, 3000)
+                }, 400)
             }
         }
     }, [anal])
+
+    useEffect(() => {
+        if (!loader && anal) {
+            let result = document.getElementById("result");
+            setTimeout(() => {
+                result.style.opacity = "1";
+            }, 50)
+        }
+    }, [loader])
+
+    //Start over function
+    function startOver() {
+        let form = document.getElementById("form");
+        let result = document.getElementById("result");
+        result.style.opacity = "0";
+        setTimeout(() => {
+            result.style.display = "none";
+            form.style.display = "initial";
+            setAnal(false);
+            setTimeout(() => {
+                form.scrollIntoView();
+                form.style.opacity = "1";
+            }, 50)
+        }, 400)
+    }
 
     return (
         <>
@@ -100,12 +134,12 @@ export const Predict = () => {
             {/*  Header End */}
             {/*Component Body*/}
             <div className="predict main-container" id="predict">
-                <div className="form-section">
+                <div className="form-section" id="form">
                     <div className="header">
                         <span className="head">Time to level up your <span className="bolder cursive">Harvest</span></span>
                         <span className="tag">Please fill the following fields properly, so that we can provide you with the most accurate recommendations for your crops.</span>
                     </div>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} id="form2">
                         <div className="input-field">
                             <label htmlFor="ph">Soil pH</label>
                             <input type="text" id="ph" name="ph" required/>
@@ -140,17 +174,18 @@ export const Predict = () => {
                     <div className="analysis" id="analysis">
                         {
                             loader &&
-                            <img src="assets/vc_loader.svg" alt="Loading..."/>
+                            <img id="loader" src="assets/vc_loader.svg" alt="Loading..."/>
                         }
                         {
                             !loader &&
-                            <>
+                            <div className="result" id="result">
                                 <span className="head cursive bold">Here's Your Analysis</span>
                                 <div className="results">
                                     <span className="crop">You should grow <span className="cursive bold">{cropName}</span> on your field!</span>
                                     <span className="des">{cropData}</span>
                                 </div>
-                            </>
+                                <button type="button" onClick={startOver} className="button">Start over...</button>
+                            </div>
                         }
                     </div>
                 }

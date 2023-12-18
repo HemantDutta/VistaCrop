@@ -20,7 +20,7 @@ export const Footer = () => {
                     </div>
                     <div className="bottom">
                         <span className="copy">&copy;&nbsp;VistaCrop&nbsp;2023</span>
-                        <a href="https://www.linkedin.com/in/siddharth-raj-b605661b1/" target="_blank" rel={"noreferrer"}>Developed by: Siddharth Raj</a>
+                        <a href="https://www.github.com/HemantDutta" target="_blank" rel={"noreferrer"}>Developed by: Hemant Dutta</a>
                     </div>
                 </div>
             </footer>
